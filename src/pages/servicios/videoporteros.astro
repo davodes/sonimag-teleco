@@ -1,0 +1,262 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="Videoporteros - Sonimag Teleco"
+  description="Instalación y configuración de sistemas de videoporteros digitales y control de accesos modernos."
+>
+  <Header />
+  
+  <main>
+    <Hero 
+      title="Videoporteros"
+      subtitle="Sistemas modernos de control de acceso y comunicación para máxima seguridad"
+      backgroundImage="https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg"
+    />
+
+    <!-- Main Service Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Videoporteros Digitales</h2>
+            <p class="text-lg text-gray-600 mb-6">
+              Instala un sistema de videoportero moderno y mejora significativamente la seguridad de tu hogar o edificio. Control total desde tu smartphone y máxima comodidad.
+            </p>
+            
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center">
+                <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-gray-700">Video HD 1080p con visión nocturna</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-gray-700">Control desde smartphone (iOS/Android)</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-gray-700">Grabación de eventos automática</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-gray-700">Apertura remota de puertas</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-gray-700">Múltiples usuarios y perfiles</span>
+              </div>
+            </div>
+            
+            <a href="/contacto" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-200">
+              Solicitar Instalación
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </a>
+          </div>
+          
+          <div>
+            <img 
+              src="https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg" 
+              alt="Sistema de videoportero digital"
+              class="w-full h-96 object-cover rounded-lg shadow-lg"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- System Types -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Tipos de Sistemas</h2>
+          <p class="text-xl text-gray-600">Soluciones adaptadas a cada necesidad</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2v-2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Unifamiliares</h3>
+            <p class="text-gray-600 mb-6">
+              Sistemas compactos para casas individuales con máxima funcionalidad y diseño elegante.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• Monitor interior 7" táctil</li>
+              <li>• Cámara exterior resistente</li>
+              <li>• App móvil incluida</li>
+              <li>• Fácil instalación</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Edificios</h3>
+            <p class="text-gray-600 mb-6">
+              Soluciones escalables para comunidades de propietarios con gestión centralizada.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• Panel principal con directorio</li>
+              <li>• Monitores en cada vivienda</li>
+              <li>• Gestión de usuarios</li>
+              <li>• Acceso con tarjeta/código</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 7h-3V6a4 4 0 00-8 0v1H5a1 1 0 00-1 1v11a3 3 0 003 3h10a3 3 0 003-3V8a1 1 0 00-1-1zM10 6a2 2 0 014 0v1h-4V6zm6 13a1 1 0 01-1 1H7a1 1 0 01-1-1V9h2v1a1 1 0 002 0V9h4v1a1 1 0 002 0V9h2v10z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Empresariales</h3>
+            <p class="text-gray-600 mb-6">
+              Sistemas avanzados para oficinas y centros comerciales con máxima seguridad.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• Control de acceso biométrico</li>
+              <li>• Integración con alarmas</li>
+              <li>• Registro de eventos</li>
+              <li>• Gestión remota completa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div class="lg:order-2">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Control Total desde tu Móvil</h2>
+            <p class="text-lg text-gray-600 mb-6">
+              Con nuestra aplicación móvil, tendrás control total de tu sistema de videoportero desde cualquier lugar. Recibe notificaciones instantáneas y atiende visitas aunque no estés en casa.
+            </p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-gray-900 mb-2">Notificaciones Push</h4>
+                <p class="text-sm text-gray-600">Alertas instantáneas de visitantes</p>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-gray-900 mb-2">Video en Tiempo Real</h4>
+                <p class="text-sm text-gray-600">Visualización HD desde tu móvil</p>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-gray-900 mb-2">Grabación en Nube</h4>
+                <p class="text-sm text-gray-600">Historial de eventos guardado</p>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-gray-900 mb-2">Control Remoto</h4>
+                <p class="text-sm text-gray-600">Apertura de puertas a distancia</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="lg:order-1">
+            <img 
+              src="https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg" 
+              alt="Control móvil de videoportero"
+              class="w-full h-96 object-cover rounded-lg shadow-lg"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Process -->
+    <section class="py-16 bg-primary-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Proceso de Instalación</h2>
+          <p class="text-xl text-gray-600">Instalación profesional en pocos pasos</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-white">1</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Evaluación</h3>
+            <p class="text-gray-600">Analizamos tu espacio y necesidades específicas.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-white">2</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Diseño</h3>
+            <p class="text-gray-600">Diseñamos el sistema optimal para tu caso.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-white">3</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Instalación</h3>
+            <p class="text-gray-600">Instalamos y configuramos todo el equipo.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-white">4</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Formación</h3>
+            <p class="text-gray-600">Te enseñamos a usar todas las funcionalidades.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">
+          Mejora la Seguridad de tu Hogar
+        </h2>
+        <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+          Instala un videoportero moderno y ten control total de tu acceso
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contacto"
+            class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg text-primary-900 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            Solicitar Presupuesto
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

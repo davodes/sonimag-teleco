@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sonimag-teleco.com
+
+# Sitemaps
+Sitemap: https://sonimag-teleco.com/sitemap-index.xml

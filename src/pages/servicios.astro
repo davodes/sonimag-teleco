@@ -1,0 +1,161 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Servicios - Sonimag Teleco"
+  description="Descubre todos nuestros servicios profesionales: fontanería, energías renovables, telecomunicaciones y videoporteros."
+>
+  <Header />
+  
+  <main>
+    <Hero 
+      title="Nuestros Servicios"
+      subtitle="Soluciones integrales para todas sus necesidades técnicas y de instalaciones"
+      backgroundImage="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg"
+    />
+
+    <!-- Services Detail Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Servicios de Fontanería</h2>
+            <p class="text-lg text-gray-600 mb-6">
+              Ofrecemos servicios completos de fontanería para hogares y negocios, desde instalaciones nuevas hasta reparaciones de emergencia.
+            </p>
+            
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Instalación de tuberías y sistemas completos
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Reparación de fugas y averías
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Instalación de sanitarios y grifería
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Mantenimiento preventivo
+              </li>
+            </ul>
+            
+            <a href="/contacto" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-200">
+              Solicitar Servicio
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </a>
+          </div>
+          
+          <div class="relative">
+            <img 
+              src="https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg" 
+              alt="Servicios de fontanería"
+              class="w-full h-96 object-cover rounded-lg shadow-lg"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Services Grid -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Todos Nuestros Servicios</h2>
+          <p class="text-xl text-gray-600">Especialistas en múltiples áreas técnicas</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard 
+            title="Energías Renovables"
+            description="Instalación de paneles solares, sistemas de aerotermia y soluciones de eficiencia energética sostenible."
+            icon="M12 2l3.09 6.26L22 9l-5.09 5.26L19 21l-7-3-7 3 2.09-6.74L2 9l6.91-.74L12 2z"
+            href="/servicios/energias-renovables"
+            image="https://images.pexels.com/photos/9800029/pexels-photo-9800029.jpeg"
+          />
+          
+          <ServiceCard 
+            title="Telecomunicaciones"
+            description="Instalación y mantenimiento de sistemas de telecomunicaciones, fibra óptica y redes de comunicación."
+            icon="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            href="/servicios/telecomunicaciones"
+            image="https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg"
+          />
+          
+          <ServiceCard 
+            title="Videoporteros"
+            description="Instalación y configuración de sistemas de videoporteros digitales y control de accesos modernos."
+            icon="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+            href="/servicios/videoporteros"
+            image="https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Nuestro Proceso</h2>
+          <p class="text-xl text-gray-600">Cómo trabajamos para garantizar tu satisfacción</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-primary-600">1</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Consulta Inicial</h3>
+            <p class="text-gray-600">Analizamos tus necesidades y proporcionamos asesoramiento experto.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-primary-600">2</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Presupuesto</h3>
+            <p class="text-gray-600">Elaboramos un presupuesto detallado y transparente sin sorpresas.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-primary-600">3</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Ejecución</h3>
+            <p class="text-gray-600">Realizamos el trabajo con la máxima profesionalidad y calidad.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-primary-600">4</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Seguimiento</h3>
+            <p class="text-gray-600">Garantizamos nuestro trabajo y ofrecemos soporte continuo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
