@@ -62,8 +62,6 @@
           <input type="hidden" name="access_key" value="80de4a57-7c81-46d2-aa2f-71a3f19e8d21">
           <!-- Honeypot -->
           <input type="checkbox" name="botcheck" class="hidden" style="display:none">
-          <!-- hCaptcha -->
-          <div class="h-captcha" data-sitekey="277a5796-ce88-4be8-aa00-a566b73ec7c6"></div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
@@ -163,12 +161,14 @@
                 class="w-4 h-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded transition-colors duration-200"
               />
             </div>
-            <div class="ml-3 text-sm">
+            <div class="ml-3 text-xs">
               <label for="privacy" class="text-gray-600">
                 Acepto la <a href="#" class="text-primary-600 hover:text-primary-700">política de privacidad</a> y el tratamiento de mis datos personales. *
               </label>
             </div>
           </div>
+          <!-- hCaptcha -->
+          <div class="h-captcha" data-sitekey="277a5796-ce88-4be8-aa00-a566b73ec7c6"></div>
 
           <!-- Redirección opcional tras envío -->
           <!-- <input type="hidden" name="redirect" value="https://tusitio.com/gracias" /> -->
