@@ -62,8 +62,8 @@
           <input type="hidden" name="access_key" value="80de4a57-7c81-46d2-aa2f-71a3f19e8d21">
           <!-- Honeypot -->
           <input type="checkbox" name="botcheck" class="hidden" style="display:none">
-          <!-- Captcha -->
-          <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+          <!-- hCaptcha -->
+          <div class="h-captcha" data-sitekey="277a5796-ce88-4be8-aa00-a566b73ec7c6"></div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
@@ -184,37 +184,33 @@
         <!-- Mensaje dinámico -->
         <p id="form-status" class="mt-4 text-center text-sm text-gray-700"></p>
 
-        <!-- reCAPTCHA -->
-        <script src="https://www.google.com/recaptcha/api.js?render=6LfrVrsrAAAAAAxdlY-VhZNjmVh_o-VYYH_JUsCH"></script>
+        <!-- hCaptcha JS -->
+        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
         <script>
-          declare var grecaptcha: any;
-
           const form = document.getElementById('contact-form') as HTMLFormElement;
           const status = document.getElementById('form-status') as HTMLParagraphElement;
-          const recaptchaInput = document.getElementById('g-recaptcha-response') as HTMLInputElement;
 
-          form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            status.textContent = 'Enviando...';
+          if (form && status) {
+            form.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              status.textContent = 'Enviando...';
 
-            // Ejecuta reCAPTCHA v3
-            grecaptcha.ready(async () => {
+              // Obtiene el token de hCaptcha
+              const hcaptchaResponse = (window as any).hcaptcha.getResponse();
+              if (!hcaptchaResponse) {
+                status.textContent = 'Por favor completa el captcha.';
+                return;
+              }
+
+              const formData = new FormData(form);
+              formData.set('h-captcha-response', hcaptchaResponse);
+
+              // Vacía botcheck
+              const botcheck = form.querySelector<HTMLInputElement>('input[name="botcheck"]');
+              if (botcheck) botcheck.value = '';
+
               try {
-                const token = await grecaptcha.execute(
-                  '6LfrVrsrAAAAAAxdlY-VhZNjmVh_o-VYYH_JUsCH',
-                  { action: 'submit' }
-                );
-
-                // Pone token en el input
-                recaptchaInput.value = token;
-
-                // Asegura botcheck vacío
-                const botcheck = form.querySelector<HTMLInputElement>('input[name="botcheck"]');
-                if (botcheck) botcheck.value = '';
-
-                // Envía formulario
-                const formData = new FormData(form);
                 const response = await fetch(form.action, {
                   method: form.method,
                   body: formData,
@@ -222,20 +218,52 @@
                 });
 
                 if (response.ok) {
-                  const data = await response.json();
-                  status.textContent = data.message || 'Mensaje enviado correctamente.';
+                  status.textContent = 'Mensaje enviado correctamente.';
                   form.reset();
+                  (window as any).hcaptcha.reset(); // resetea el captcha
                 } else {
                   const data = await response.json();
-                  status.textContent = `Error al enviar: ${data.message || 'Intenta nuevamente.'}`;
+                  status.textContent = 'Error al enviar: ' + (data.message || 'Intenta nuevamente.');
                 }
-              } catch (err) {
+              } catch (error) {
                 status.textContent = 'Error de conexión. Revisa tu red.';
               }
             });
-          });
+          }
         </script>
       </div>
     </div>
   </div>
 </section>
+
+
+<!-- Script simple -->
+<!-- <script>
+  const form = document.querySelector<HTMLFormElement>('form[action="https://api.web3forms.com/submit"]');
+  const status = document.getElementById('form-status') as HTMLParagraphElement | null;
+
+  if (form && status) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Enviando...';
+
+      const formData = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          status.textContent = 'Mensaje enviado correctamente.';
+          form.reset();
+        } else {
+          status.textContent = 'Error al enviar el mensaje. Intenta nuevamente.';
+        }
+      } catch {
+        status.textContent = 'Error de conexión. Revisa tu red.';
+      }
+    });
+  }
+</script> -->
