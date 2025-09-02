@@ -61,7 +61,7 @@
           <!-- Web3Forms Key -->
           <input type="hidden" name="access_key" value="80de4a57-7c81-46d2-aa2f-71a3f19e8d21">
           <!-- Honeypot -->
-          <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+          <!-- <input type="checkbox" name="botcheck" class="hidden" style="display:none"> -->
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
@@ -185,28 +185,8 @@
         <p id="form-status" class="mt-4 text-center text-sm text-gray-700"></p>
 
         <!-- hCaptcha JS -->
-        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
         <script src="https://web3forms.com/client/script.js" async defer></script>
 
-        <script>
-          const form = document.getElementById('contact-form') as HTMLFormElement | null;
-          const status = document.getElementById('form-status') as HTMLParagraphElement | null;
-
-          if (form && status) {
-            form.addEventListener('submit', function(e) {
-              const hcaptchaEl = form.querySelector('textarea[name=h-captcha-response]') as HTMLTextAreaElement | null;
-              const hCaptcha = hcaptchaEl?.value;
-
-              if (!hCaptcha) {
-                e.preventDefault();
-                status.textContent = "Por favor completa el captcha";
-                return;
-              }
-
-              status.textContent = "Enviando...";
-            });
-          }
-        </script>
       </div>
     </div>
   </div>
