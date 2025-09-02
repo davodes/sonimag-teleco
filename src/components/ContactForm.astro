@@ -193,43 +193,47 @@
           const form = document.getElementById('contact-form') as HTMLFormElement;
           const status = document.getElementById('form-status') as HTMLParagraphElement;
           const recaptchaInput = document.getElementById('g-recaptcha-response') as HTMLInputElement;
-          
-          if (form && status) {
-            form.addEventListener('submit', async (e) => {
+
+          form.addEventListener('submit', async (e) => {
             e.preventDefault();
             status.textContent = 'Enviando...';
 
-              // Ejecuta reCAPTCHA
-              grecaptcha.ready(async () => {
-                const token = await grecaptcha.execute('6LfrVrsrAAAAAAxdlY-VhZNjmVh_o-VYYH_JUsCH', { action: 'submit' });
-                const recaptchaInput = document.getElementById('g-recaptcha-response') as HTMLInputElement;
+            // Ejecuta reCAPTCHA v3
+            grecaptcha.ready(async () => {
+              try {
+                const token = await grecaptcha.execute(
+                  '6LfrVrsrAAAAAAxdlY-VhZNjmVh_o-VYYH_JUsCH',
+                  { action: 'submit' }
+                );
+
+                // Pone token en el input
                 recaptchaInput.value = token;
 
-                // Asegúrate de que botcheck esté vacío
+                // Asegura botcheck vacío
                 const botcheck = form.querySelector<HTMLInputElement>('input[name="botcheck"]');
                 if (botcheck) botcheck.value = '';
 
+                // Envía formulario
                 const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                  method: form.method,
+                  body: formData,
+                  headers: { 'Accept': 'application/json' }
+                });
 
-                try {
-                  const response = await fetch(form.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                  });
-
-                  if (response.ok) {
-                    status.textContent = 'Mensaje enviado correctamente.';
-                    form.reset();
-                  } else {
-                    status.textContent = 'Error al enviar el mensaje. Intenta nuevamente.';
-                  }
-                } catch (error) {
-                  status.textContent = 'Error de conexión. Revisa tu red.';
+                if (response.ok) {
+                  const data = await response.json();
+                  status.textContent = data.message || 'Mensaje enviado correctamente.';
+                  form.reset();
+                } else {
+                  const data = await response.json();
+                  status.textContent = `Error al enviar: ${data.message || 'Intenta nuevamente.'}`;
                 }
-              });
+              } catch (err) {
+                status.textContent = 'Error de conexión. Revisa tu red.';
+              }
             });
-          }
+          });
         </script>
       </div>
     </div>
