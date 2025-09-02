@@ -168,7 +168,7 @@
             </div>
           </div>
           <!-- hCaptcha -->
-          <div class="h-captcha" data-captcha="true" data-sitekey="277a5796-ce88-4be8-aa00-a566b73ec7c6"></div>
+          <div class="h-captcha" data-captcha="true"></div>
 
           <!-- Redirección opcional tras envío -->
           <!-- <input type="hidden" name="redirect" value="https://tusitio.com/gracias" /> -->
@@ -189,46 +189,21 @@
         <script src="https://web3forms.com/client/script.js" async defer></script>
 
         <script>
-          const form = document.getElementById('contact-form') as HTMLFormElement;
-          const status = document.getElementById('form-status') as HTMLParagraphElement;
+          const form = document.getElementById('contact-form') as HTMLFormElement | null;
+          const status = document.getElementById('form-status') as HTMLParagraphElement | null;
 
           if (form && status) {
-            form.addEventListener('submit', async (e) => {
-              e.preventDefault();
-              status.textContent = 'Enviando...';
+            form.addEventListener('submit', function(e) {
+              const hcaptchaEl = form.querySelector('textarea[name=h-captcha-response]') as HTMLTextAreaElement | null;
+              const hCaptcha = hcaptchaEl?.value;
 
-              // Obtiene el token de hCaptcha
-              const hcaptchaResponse = (window as any).hcaptcha.getResponse();
-              if (!hcaptchaResponse) {
-                status.textContent = 'Por favor completa el captcha.';
+              if (!hCaptcha) {
+                e.preventDefault();
+                status.textContent = "Por favor completa el captcha";
                 return;
               }
 
-              const formData = new FormData(form);
-              formData.set('h-captcha-response', hcaptchaResponse);
-
-              // Vacía botcheck
-              const botcheck = form.querySelector<HTMLInputElement>('input[name="botcheck"]');
-              if (botcheck) botcheck.value = '';
-
-              try {
-                const response = await fetch(form.action, {
-                  method: form.method,
-                  body: formData,
-                  headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                  status.textContent = 'Mensaje enviado correctamente.';
-                  form.reset();
-                  (window as any).hcaptcha.reset(); // resetea el captcha
-                } else {
-                  const data = await response.json();
-                  status.textContent = 'Error al enviar: ' + (data.message || 'Intenta nuevamente.');
-                }
-              } catch (error) {
-                status.textContent = 'Error de conexión. Revisa tu red.';
-              }
+              status.textContent = "Enviando...";
             });
           }
         </script>
